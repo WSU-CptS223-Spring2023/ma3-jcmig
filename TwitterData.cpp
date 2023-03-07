@@ -9,7 +9,11 @@ TwitterData::TwitterData ()
 // destructor
 TwitterData::~TwitterData()
 {
-	// Task 1(b) - you need to implement
+	delete mpUserName;
+	delete mpActualName;
+	delete mpEmail;
+	delete mpCategory;
+	delete mpNumTweets;
 }
 
 //Copy constructor - deep copy
@@ -65,28 +69,38 @@ void TwitterData::setUserName(const std::string& newUserName)
 {
 	// Task 1(a) - you need to implement
 	// do we need to allocate space for a std::string here?
+	delete mpUserName;
+	mpUserName = new std::string(newUserName);
 }
 // assume actualname = last,first;
 void TwitterData::setActualName(const std::string& newActualName)
 {
 	// Task 1(a) - you need to implement
 	// do we need to allocate space for a std::string here?
+	delete mpActualName;
+	mpActualName = new std::string(newActualName);
 }
 
 void TwitterData::setEmail(const std::string& newEmail)
 {
 	// Task 1(a) - you need to implement
 	// do we need to allocate space for a std::string here?
+	delete mpEmail;
+	mpEmail = new std::string(newEmail);
 }
 
 void TwitterData::setCategory(const std::string& newCategory)
 {
 	// Task 1(a) - you need to implement
 	// do we need to allocate space for a std::string here?
+	delete mpCategory;
+	mpCategory = new std::string(newCategory);
 }
 
 void TwitterData::setNumTweets(const int& newNumTweets)
 {
 	// Task 1(a) - you need to implement
 	// do we need to allocate space for an int here?
+	delete mpNumTweets;
+	mpNumTweets = new int(newNumTweets);
 }
