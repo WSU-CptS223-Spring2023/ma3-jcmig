@@ -1,6 +1,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <stdexcept>
 
 #include <map>
 #include "TwitterData.hpp"
@@ -33,7 +34,6 @@ int main(int argc, char* argv[])
 	}
 
 	std::string line;
-	char quotationChar = '\"';
 	int lineNum = 0;
 	while (std::getline(infile, line)) {
 		++lineNum;

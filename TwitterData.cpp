@@ -46,11 +46,11 @@ TwitterData::TwitterData(TwitterData&& other)
 TwitterData& TwitterData::operator=(TwitterData& other)
 {
 	if (this != &other) {
-		*mpUserName = other.getUserName();
-		*mpActualName = other.getActualName();
-		*mpEmail = other.getEmail();
-		*mpCategory = other.getCategory();
-		*mpNumTweets = other.getNumTweets();
+		setUserName(other.getUserName());
+		setActualName(other.getActualName());
+		setEmail(other.getEmail());
+		setCategory(other.getCategory());
+		setNumTweets(other.getNumTweets());
 	}
 
 	return *this;
@@ -139,6 +139,5 @@ void TwitterData::setNumTweets(const int& newNumTweets)
 {
 	// Task 1(a) - you need to implement
 	// do we need to allocate space for an int here?
-	delete mpNumTweets;
-	mpNumTweets = new int(newNumTweets);
+	*mpNumTweets = newNumTweets;
 }
