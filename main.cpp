@@ -1,3 +1,7 @@
+#include <fstream>
+#include <sstream>
+#include <vector>
+
 #include <map>
 #include "TwitterData.hpp"
 
@@ -5,6 +9,7 @@ int main(int argc, char* argv[])
 {
 	// we need a map to store our key-value pairs
 	// std::map<keyType, ValueType>; What should the key be? What about the value?
+	std::map<int, TwitterData> twitterDataMap;
 
 	// Tasks 1(c) and (d) - Read the CSV file and insert the data into the std::map object
 	

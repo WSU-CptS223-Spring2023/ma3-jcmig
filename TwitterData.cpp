@@ -19,25 +19,63 @@ TwitterData::~TwitterData()
 //Copy constructor - deep copy
 TwitterData::TwitterData(const TwitterData& other) 
 {
-	// Task 1(b) - you need to implement
+	mpUserName = new std::string(*other.mpUserName);
+	mpActualName = new std::string(*other.mpActualName);
+	mpEmail = new std::string(*other.mpEmail);
+	mpCategory = new std::string(*other.mpCategory);
+	mpNumTweets = new int(*other.mpNumTweets);
 }
 
 //Move constructor
 TwitterData::TwitterData(TwitterData&& other)
 {
-	// Task 1(b) - you need to implement
+	mpUserName = other.mpUserName;
+	mpActualName = other.mpActualName;
+	mpEmail = other.mpEmail;
+	mpCategory = other.mpCategory;
+	mpNumTweets = other.mpNumTweets;
+
+	other.mpUserName = nullptr;
+	other.mpActualName = nullptr;
+	other.mpEmail = nullptr;
+	other.mpCategory = nullptr;
+	other.mpNumTweets = nullptr;
 }
 
 //Copy assignment operator
 TwitterData& TwitterData::operator=(TwitterData& other)
 {
-	// Task 1(b) - you need to implement
+	if (this != &other) {
+		*mpUserName = other.getUserName();
+		*mpActualName = other.getActualName();
+		*mpEmail = other.getEmail();
+		*mpCategory = other.getCategory();
+		*mpNumTweets = other.getNumTweets();
+	}
+
+	return *this;
 }
 
 //Move assignment operator
 TwitterData& TwitterData::operator=(TwitterData&& other)
 {
-	// Task 1(b) - you need to implement
+	if (this != &other) {
+		this->~TwitterData();
+
+		this->mpUserName = other.mpUserName;
+		this->mpActualName = other.mpActualName;
+		this->mpEmail = other.mpEmail;
+		this->mpCategory = other.mpCategory;
+		this->mpNumTweets = other.mpNumTweets;
+
+		other.mpUserName = nullptr;
+		other.mpActualName = nullptr;
+		other.mpEmail = nullptr;
+		other.mpCategory = nullptr;
+		other.mpNumTweets = nullptr;
+	}
+
+	return *this;
 }
 
 std::string TwitterData::getUserName() const
