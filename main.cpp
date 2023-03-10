@@ -1,3 +1,22 @@
+/*
+Qn 1:	I used the username as the key. This is because I wanted to follow
+		the output found in the screenshots of MA3.pdf
+
+For Qn 2 to Qn 6, n is the number of elements in the map.
+
+Qn 2:	O(log(n))
+Qn 3:	O(log(n))
+Qn 4:	O(log(n))
+Qn 5:	O(n)
+Qn 6:	O(n)
+
+Qn 7:	We should use a map when we need to store key-value pairs, and
+		when we require fast access to the values based on their
+		corresponding keys. Specifically, in the case of this program,
+		a map was used to store user tweet data based on their usernames,
+		allowing for quick retrieval of data when given a username.
+*/
+
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -7,9 +26,8 @@
 #include "TwitterData.hpp"
 
 std::ostream& operator<<(std::ostream& out, const std::map<std::string, TwitterData>& map) {
+	int i = 1;
 	for (const auto& pair : map) {
-		int i = 1;
-
 		out << i << " - Key: " << pair.first << std::endl;
 		out << "    Value : { Name: " << pair.second.getActualName() << ";  Username: " << pair.second.getUserName() << ";  ";
 		out << "Email: " << pair.second.getEmail() << ":  Category: " << pair.second.getCategory() << ";  Tweet count: " << pair.second.getNumTweets() << " }" << std::endl;
@@ -70,8 +88,8 @@ int main(int argc, char* argv[])
 	}
 
 	// Task 1(g) - 1st print - iterate through the std::map and print the key-value pairs; print using a range loop
+	int i = 1;
 	for (const auto& pair : twitterDataMap) {
-		int i = 1;
 		std::string key = pair.first;
 		TwitterData value = pair.second;
 
@@ -81,6 +99,7 @@ int main(int argc, char* argv[])
 
 		i++;
 	}
+	std::cout << std::endl;
 
 	// Task 1(e) - remove the key-value pair matching key “ken2005”
 	std::cout << "--------------------------------" << std::endl;
@@ -92,16 +111,15 @@ int main(int argc, char* argv[])
 	std::cout << "--------------------------------" << std::endl;
 
 	// Task 1(g) - 2nd print - iterate through the std::map and print the key-value pairs; print using a for loop using iterators
+	i = 1;
 	for (auto iterator = twitterDataMap.begin(); iterator != twitterDataMap.end(); ++iterator){
-		int i = 1;
-		
 		std::cout << i << " - Key: " << iterator->first << std::endl;
 		std::cout << "    Value : { Name: " << iterator->second.getActualName() << ";  Username: " << iterator->second.getUserName() << ";  ";
 		std::cout << "Email: " << iterator->second.getEmail() << ":  Category: " << iterator->second.getCategory() << ";  Tweet count: " << iterator->second.getNumTweets() << " }" << std::endl;
 
 		i++;
 	}
-
+	
 	// Task 1(f) - remove the key-value pair matching last and first name “Ay,Arslan”
 	
 	/*	Possible method: using std::find_if(); Chose to use a for-loop instead as it is something I'm more confident in, and I just learnt about std::find_if()
@@ -133,10 +151,10 @@ int main(int argc, char* argv[])
 	}
 
 	// Task 1(i) - print (MostViewedCategory, vector of TwitterData) pairs.
+	i = 1;
 	for (const auto& pair : categoryTwitterDataMap) {
 		const std::string& category = pair.first;
 		const std::vector<TwitterData>& dataVector = pair.second;
-		int i = 1;
 
 		std::cout << i << " - Key: " << category << std::endl;
 		std::cout << "    Value : [" << std::endl;
@@ -146,8 +164,9 @@ int main(int argc, char* argv[])
 			std::cout << "Email: " << data.getEmail() << ":  Category: " << data.getCategory() << ";  Tweet count: " << data.getNumTweets() << " }" << std::endl;
 		}
 
-		std::cout << " ]" << std::endl;
-	
+		std::cout << " ]" << std::endl << std::endl;
+
+		i++;
 	}
 	return 0;
 }
