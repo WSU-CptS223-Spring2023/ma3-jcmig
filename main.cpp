@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
 	}
 
 	// Task 1(g) - 3rd print - print using a “<< operator for map” . You need to define the operator function in main.cpp
-	std::cout << twitterDataMap << std::endl;
+	std::cout << std::endl << twitterDataMap << std::endl;
 
 	//Task 1(h) reorganize the data and store it in a map object where the keys are categories and values are vectors of TwitterData
 	std::map<std::string, std::vector<TwitterData>> categoryTwitterDataMap;

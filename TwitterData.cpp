@@ -139,5 +139,6 @@ void TwitterData::setNumTweets(const int& newNumTweets)
 {
 	// Task 1(a) - you need to implement
 	// do we need to allocate space for an int here?
-	*mpNumTweets = newNumTweets;
+	delete mpNumTweets;
+	mpNumTweets = new int(newNumTweets);
 }
