@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
 
 		i++;
 	}
-	
+	std::cout << std::endl;
 	// Task 1(f) - remove the key-value pair matching last and first name “Ay,Arslan”
 	
 	/*	Possible method: using std::find_if(); Chose to use a for-loop instead as it is something I'm more confident in, and I just learnt about std::find_if()
@@ -132,13 +132,16 @@ int main(int argc, char* argv[])
 			twitterDataMap.erase(iter);
 		}
 	*/
-
+	std::cout << "--------------------------------" << std::endl;
+	std::cout << "Removing item with Last/First Name: Ay,Arslan." << std::endl;
 	for (auto iter = twitterDataMap.begin(); iter != twitterDataMap.end(); ++iter) {
 		if (iter->second.getActualName() == "Ay,Arslan") {
 			twitterDataMap.erase(iter);
 			break;
 		}
 	}
+	std::cout << "Erased 1 element(s)." << std::endl;
+	std::cout << "--------------------------------" << std::endl;
 
 	// Task 1(g) - 3rd print - print using a “<< operator for map” . You need to define the operator function in main.cpp
 	std::cout << std::endl << twitterDataMap << std::endl;
